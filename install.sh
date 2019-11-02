@@ -9,8 +9,8 @@ rm -rf $WORKING
 mkdir -p $WORKING
 cd $WORKING
 
-curl http://www.crosswire.org/ftpmirror/pub/jsword/release/jsword-1.6-src.zip > jsword-1.6-bin.zip
-unzip jsword-1.6-bin.zip
+curl http://www.crosswire.org/ftpmirror/pub/jsword/release/jsword-1.6-src.zip > jsword-1.6-src.zip
+unzip jsword-1.6-src.zip
 
 
 function makeSourceZip {
@@ -18,7 +18,6 @@ function makeSourceZip {
   zip -r $WORKING/$2-1.6.src.jar *
 }
 
-makeSourceZip bibledesktop bibledesktop
 makeSourceZip jsword jsword
 makeSourceZip common jsword-common
 
@@ -42,4 +41,4 @@ function installAndDeploy {
 
 installAndDeploy "$BASE/jsword.pom.xml" "jsword-1.6/jsword-1.6.jar" "$WORKING/jsword-1.6.src.jar"
 installAndDeploy "$BASE/jsword-common.pom.xml" "jsword-1.6/jsword-common-1.6.jar" "$WORKING/jsword-common-1.6.src.jar"
-installAndDeploy "$BASE/bibledesktop.pom.xml" "jsword-1.6/bibledesktop-1.6.jar" "$WORKING/bibledesktop-1.6.src.jar"
+
